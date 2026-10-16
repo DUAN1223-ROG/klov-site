@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>克洛夫國際貿易集團</title>
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&family=Cinzel:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: corporate site. Light-first ivory with bronze accent from the crest; family hues on their cards. Separate "internal portal" view behind an authorization code. */
+:root{
+  --bg:#f6f4ee; --surface:#ffffff; --surface-2:#ece9e0; --fg:#1b1a1d; --muted:#5f5e66; --line:#d8d3c7;
+  --accent:#8a6320; --accent-soft:#f1e6cc; --accent-fg:#ffffff;
+  --walter:#8a5236; --edward:#1f6fae; --morgan:#6a52a8;
+  --font-display:"Cinzel",serif; --font-cjk-display:"Noto Serif TC","Noto Sans TC",serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1013; --surface:#17181d; --surface-2:#1f2128; --fg:#e9e5dc; --muted:#9a9ba3; --line:#2b2d35;
+  --accent:#c99a4b; --accent-soft:#2a2214; --accent-fg:#0f1013; --walter:#b57a5a; --edward:#4a9fd8; --morgan:#9d8bd0; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1013; --surface:#17181d; --surface-2:#1f2128; --fg:#e9e5dc; --muted:#9a9ba3; --line:#2b2d35;
+  --accent:#c99a4b; --accent-soft:#2a2214; --accent-fg:#0f1013; --walter:#b57a5a; --edward:#4a9fd8; --morgan:#9d8bd0; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.75}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font-family:inherit}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent)}
+[hidden]{display:none!important}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:9}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+.brand img{height:34px;width:auto}
+.brand b{font-family:var(--font-display);font-weight:700;letter-spacing:.1em;color:var(--accent);font-size:.9rem}
+.brand span{display:block;font-size:.72rem;color:var(--muted);line-height:1.2}
+.top nav{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.top nav a{color:var(--muted);text-decoration:none;font-size:.88rem}
+.top nav a:hover{color:var(--accent)}
+.portalbtn{border:1px solid var(--accent);background:transparent;color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.8rem;cursor:pointer}
+.portalbtn.on{background:var(--accent);color:var(--accent-fg)}
+
+.hero{padding-block:52px 44px;display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;border-bottom:1px solid var(--line)}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.hero img{width:100%;max-width:500px;margin:0 auto;filter:drop-shadow(0 12px 28px rgba(0,0,0,.25))}
+.eyebrow{font-family:var(--font-display);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1{font-family:var(--font-cjk-display);font-weight:900;font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.latin{font-family:var(--font-display);color:var(--muted);letter-spacing:.14em;font-size:.9rem;margin:0 0 18px}
+.lede{margin:0 0 18px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.facts div{border:1px solid var(--line);padding:10px 12px;border-radius:6px;background:var(--surface);min-width:0}
+.facts b{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-weight:500}
+
+section{padding-block:56px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--font-cjk-display);font-weight:900;font-size:1.7rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 28px;max-width:60em}
+.kicker{font-family:var(--font-display);font-size:.7rem;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin:0 0 6px}
+
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 12px}
+.values{display:grid;gap:10px}
+.values div{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:12px 16px}
+.values b{display:block;font-size:.95rem}
+.values span{font-size:.88rem;color:var(--muted)}
+
+.families{display:grid;gap:20px;grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.families{grid-template-columns:1fr}}
+.family{border:1px solid var(--line);background:var(--surface);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0;border-top:4px solid var(--fc)}
+.family .crest{padding:22px 22px 6px;background:radial-gradient(ellipse at 50% 30%,color-mix(in srgb,var(--fc) 18%,transparent),transparent 70%)}
+.family .crest img{width:100%;max-width:300px;height:220px;object-fit:contain;margin:0 auto}
+.family .body{padding:14px 22px 22px;display:grid;gap:10px}
+.family h3{margin:0;font-family:var(--font-cjk-display);font-size:1.35rem;font-weight:900}
+.family h3 small{display:block;font-family:var(--font-display);font-size:.72rem;letter-spacing:.18em;color:var(--fc);font-weight:500;margin-top:2px}
+.motto{font-style:italic;color:var(--muted);border-left:3px solid var(--fc);padding-left:12px;margin:0;font-size:.95rem}
+.motto em{display:block;font-style:normal;font-family:var(--font-display);font-size:.75rem;letter-spacing:.08em;margin-top:2px}
+.kv{display:grid;gap:6px;font-size:.92rem;margin:0}
+.kv div{display:grid;grid-template-columns:64px 1fr;gap:10px}
+.kv dt{color:var(--muted);font-size:.8rem;font-family:var(--font-mono);padding-top:3px}
+.kv dd{margin:0}
+.pill{display:inline-block;font-family:var(--font-mono);font-size:.7rem;padding:2px 8px;border-radius:4px;border:1px solid var(--fc);color:var(--fc);margin:2px 4px 2px 0}
+.family p.desc{margin:0;font-size:.9rem;color:var(--muted)}
+
+.gov{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:32px 24px;display:grid;gap:26px}
+.gov-head{text-align:center}
+.gov h3{margin:0;font-family:var(--font-cjk-display);font-weight:900;font-size:1.4rem}
+.gov h3 small{display:block;font-family:var(--font-display);font-size:.72rem;letter-spacing:.2em;color:var(--accent);font-weight:500;margin-top:4px}
+.tri{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
+@media (max-width:640px){.tri{grid-template-columns:1fr}}
+.tri div{display:grid;justify-items:center;text-align:center;gap:4px;padding:18px 14px 16px;border:1px solid var(--line);border-top:3px solid var(--fc);border-radius:8px;background:var(--bg);min-width:0}
+.tri img{height:88px;width:auto;max-width:100%;object-fit:contain;margin-bottom:6px}
+.tri b{font-size:1rem}
+.tri span{display:block;font-size:.82rem;color:var(--muted)}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:8px 14px;border-radius:6px;cursor:pointer;font-size:.9rem;display:flex;gap:8px;align-items:center}
+.tab i{width:8px;height:8px;border-radius:50%;background:var(--fc);flex:none}
+.tab[aria-selected="true"]{border-color:var(--fc);color:var(--fg);background:var(--surface-2)}
+.panel{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;min-width:0}
+.panel header{padding:24px;border-bottom:1px solid var(--line);background:linear-gradient(110deg,color-mix(in srgb,var(--fc) 18%,transparent),transparent 65%);display:grid;gap:6px}
+.panel header h3{margin:0;font-family:var(--font-cjk-display);font-weight:900;font-size:1.5rem}
+.panel header h3 small{font-family:var(--font-display);font-size:.78rem;letter-spacing:.14em;color:var(--fc);display:block;font-weight:500}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.meta span{font-family:var(--font-mono);font-size:.72rem;padding:3px 9px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}
+.meta span.f{border-color:var(--fc);color:var(--fc)}
+.inner{padding:22px 24px;display:grid;gap:26px}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.svc{grid-template-columns:1fr}}
+.svc div{padding:14px 16px;border-radius:6px;border:1px solid var(--line);min-width:0}
+.svc h4{margin:0 0 4px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.svc p,.svc ul{margin:0;font-size:.92rem}
+.svc ul{padding-left:18px;color:var(--muted)}
+.tier h4{margin:0 0 10px;font-size:.78rem;font-family:var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.tier h4 span{color:var(--muted);letter-spacing:0;text-transform:none;margin-left:8px}
+.roles{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.role{border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--bg);min-width:0;display:grid;gap:3px}
+.role b{font-size:.98rem}
+.role em{font-style:normal;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;color:var(--fc);font-weight:500}
+.role em code{font-family:inherit;background:var(--surface-2);padding:0 5px;border-radius:3px;margin-left:4px;color:var(--fg)}
+.role p{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+
+.hq{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.depts{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));margin-top:24px}
+.dept{border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:var(--surface);min-width:0}
+.dept b{display:block;font-size:.95rem;margin-bottom:4px}
+.dept span{font-size:.85rem;color:var(--muted)}
+
+/* People */
+.people{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.person{border:1px solid var(--line);background:var(--surface);border-radius:10px;overflow:hidden;cursor:pointer;text-align:left;padding:0;color:var(--fg);display:grid;min-width:0;border-top:4px solid var(--fc)}
+.person img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.person .pb{padding:12px 14px 14px;display:grid;gap:2px}
+.person em{font-style:normal;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;color:var(--fc)}
+.person b{font-size:1.05rem}
+.person small{color:var(--muted);font-size:.8rem}
+.person:hover{border-color:var(--fc)}
+.profile{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;margin-top:22px;display:grid;grid-template-columns:360px 1fr;min-width:0}
+.profile[hidden]{display:none}
+@media (max-width:700px){.profile{grid-template-columns:1fr}}
+.profile img{width:100%;height:100%;object-fit:cover;object-position:top;max-height:520px}
+.profile .pd{padding:24px;display:grid;gap:16px;align-content:start;border-left:4px solid var(--fc)}
+@media (max-width:700px){.profile .pd{border-left:0;border-top:4px solid var(--fc)}}
+.profile h3{margin:0;font-family:var(--font-cjk-display);font-weight:900;font-size:1.6rem}
+.profile h3 small{display:block;font-family:var(--font-display);font-size:.75rem;letter-spacing:.16em;color:var(--fc);font-weight:500}
+.profile .pq{font-style:italic;color:var(--muted);border-left:3px solid var(--fc);padding-left:12px;margin:0}
+.profile h4{margin:0 0 6px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.profile p{margin:0;font-size:.95rem}
+.profile .close{justify-self:start;border:1px solid var(--line);background:transparent;color:var(--muted);padding:5px 12px;border-radius:999px;font-size:.8rem;cursor:pointer}
+
+/* 3D tilt stage */
+.stage{position:relative;perspective:900px;width:100%;height:100%;min-height:420px;overflow:hidden;background:#f6f4ee;touch-action:none;cursor:grab}
+.stage .card{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .12s ease-out;will-change:transform}
+.stage .card.idle{transition:transform .8s ease}
+.stage .layer{position:absolute;inset:-5%;width:110%;height:110%;object-fit:contain;object-position:center;pointer-events:none}
+.stage .bg{transform:translateZ(-60px) scale(1.04)}
+.stage .fg{transform:translateZ(50px);filter:drop-shadow(0 18px 24px rgba(0,0,0,.28))}
+.stage .shadow{position:absolute;left:18%;right:18%;bottom:4%;height:10%;background:radial-gradient(ellipse at center,rgba(0,0,0,.28),transparent 70%);transform:translateZ(-20px);filter:blur(6px)}
+.stage .glare{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 60%);mix-blend-mode:soft-light;transform:translateZ(80px);opacity:.7;pointer-events:none}
+.stage .hint{position:absolute;right:10px;bottom:8px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:#6b6a70;background:rgba(255,255,255,.7);padding:3px 8px;border-radius:999px;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.stage .card{transition:none}}
+.placeholder{border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--muted);background:var(--surface)}
+
+footer{color:var(--muted);font-size:.8rem;padding-block:28px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+/* Portal (login) */
+.portal{max-width:420px;margin:0 auto;padding-block:72px}
+.portal .box{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:28px;display:grid;gap:14px}
+.portal h2{font-size:1.3rem;margin:0}
+.portal p{margin:0;color:var(--muted);font-size:.9rem}
+.portal label{font-size:.8rem;font-family:var(--font-mono);color:var(--muted)}
+.portal input{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-family:var(--font-mono);font-size:1rem}
+.portal button{border:0;background:var(--accent);color:var(--accent-fg);padding:10px 14px;border-radius:6px;font-size:.95rem;cursor:pointer;font-weight:500}
+.portal .msg{font-size:.8rem;font-family:var(--font-mono);color:var(--muted);min-height:1.2em}
+.portal .msg.err{color:#d9604a}
+.portal .back{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* Internal view */
+.internal{padding-block:0 60px}
+.intbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:16px;border-bottom:2px solid var(--accent);margin-bottom:28px}
+.intbar .tag{font-family:var(--font-display);letter-spacing:.25em;font-size:.75rem;color:var(--accent);border:2px solid var(--accent);padding:4px 10px}
+.intbar .lvl{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
+.intsec{padding-block:28px;border-bottom:1px solid var(--line)}
+.intsec h3{margin:0 0 4px;font-family:var(--font-cjk-display);font-weight:900;font-size:1.35rem}
+.intsec h3 small{display:block;font-family:var(--font-display);font-size:.72rem;letter-spacing:.16em;color:var(--fc,var(--accent));font-weight:500}
+.intsec .meta{margin-bottom:16px}
+.intsec .grid{display:grid;gap:22px}
+.redlist{margin:0;padding-left:18px;color:var(--muted);font-size:.93rem}
+.note{font-size:.85rem;color:var(--muted);font-family:var(--font-mono);background:var(--accent-soft);padding:8px 12px;border-radius:6px}
+@media (prefers-reduced-motion:no-preference){.inner{animation:fade .25s ease}@keyframes fade{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><img src="img/klov.webp" alt=""><div><b>KLOV GROUP</b><span>克洛夫國際貿易集團</span></div></a>
+  <nav id="pubnav">
+    <a href="#about">關於集團</a>
+    <a href="#families">創始家族</a>
+    <a href="#gov">集團治理</a>
+    <a href="#subs">事業體</a>
+    <a href="#hq">經營團隊</a>
+    <button class="portalbtn" id="portalBtn" type="button">員工入口</button>
+  </nav>
+</div></header>
+
+<!-- ===== PUBLIC SITE ===== -->
+<main class="wrap" id="public">
+  <div class="hero" id="top">
+    <img src="img/klov.webp" alt="克洛夫集團徽章：雙獅扶盾，交叉雙劍與 K、V 字母，綬帶題 KLOV、EST. 1297、VIRTUTE ET HONORE">
+    <div>
+      <p class="eyebrow">Klov International Trading Group</p>
+      <h1>連結全球的貿易與物流夥伴</h1>
+      <p class="latin">VIRTUTE ET HONORE · EST. 1297</p>
+      <p class="lede">克洛夫國際貿易集團是一家國際綜合貿易控股公司，業務涵蓋航運、陸運、快遞與風險管理顧問，為全球客戶提供安全、可靠的跨境解決方案。</p>
+      <div class="facts">
+        <div><b>創立</b><span>1297 年</span></div>
+        <div><b>型態</b><span>國際綜合貿易控股</span></div>
+        <div><b>事業體</b><span>四家子公司</span></div>
+        <div><b>格言</b><span>以德與榮</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <p class="kicker">About</p>
+    <h2>關於集團</h2>
+    <div class="about">
+      <div>
+        <p>克洛夫集團創立於 1297 年，由沃爾特、愛德華、摩根三個家族共同創建並延續至今。七個多世紀以來，集團從區域貿易商成長為橫跨航運、物流、交通與風控顧問的國際控股企業。</p>
+        <p>我們重視風險控制與資訊安全，相信可靠的流通網絡是全球商業的基礎。旗下四家子公司各有專精，彼此協作，為客戶提供從港口到門前的一站式服務。</p>
+      </div>
+      <div class="values">
+        <div><b>信譽</b><span>七百年的家族承諾，延續至每一筆交易。</span></div>
+        <div><b>安全</b><span>風險控管與資訊安全是我們一切服務的前提。</span></div>
+        <div><b>流通</b><span>海、陸、空與資訊渠道的無縫整合。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="families">
+    <p class="kicker">Founding Houses</p>
+    <h2>創始家族</h2>
+    <p class="sub">集團由三個創始家族共同持有與經營，各自主導不同的事業領域。</p>
+    <div class="families">
+      <article class="family" style="--fc:var(--walter)">
+        <div class="crest"><img src="img/walter.webp" alt="沃爾特家族家徽"></div>
+        <div class="body">
+          <h3>沃爾特家族<small>THE WALTER FAMILY</small></h3>
+          <p class="motto">「秩序源於力量。」<em>ORDER BORN OF STRENGTH.</em></p>
+          <dl class="kv">
+            <div><dt>領域</dt><dd>安全防衛與工業</dd></div>
+            <div><dt>事業體</dt><dd><span class="pill">Strathex</span><span class="pill">Gomov</span></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="family" style="--fc:var(--edward)">
+        <div class="crest"><img src="img/edward.webp" alt="愛德華家族家徽"></div>
+        <div class="body">
+          <h3>愛德華家族<small>THE EDWARD FAMILY</small></h3>
+          <p class="motto">「流通即是權力。」<em>TO FLOW IS TO RULE.</em></p>
+          <dl class="kv">
+            <div><dt>領域</dt><dd>全球航運與物流網絡</dd></div>
+            <div><dt>事業體</dt><dd><span class="pill">Hasov</span></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="family" style="--fc:var(--morgan)">
+        <div class="crest"><img src="img/morgan.webp" alt="摩根家族家徽"></div>
+        <div class="body">
+          <h3>摩根家族<small>THE MORGAN FAMILY</small></h3>
+          <p class="motto">「真相隱於陰影。」<em>TRUTH HIDDEN IN SHADOWS.</em></p>
+          <dl class="kv">
+            <div><dt>領域</dt><dd>高價值快遞、技術研發、集團財務</dd></div>
+            <div><dt>事業體</dt><dd><span class="pill">Siegfried</span></dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="gov">
+    <p class="kicker">Governance</p>
+    <h2>集團治理</h2>
+    <p class="sub">集團最高決策機構為克洛夫三委員會。</p>
+    <div class="gov">
+      <div class="gov-head">
+        <h3>克洛夫三委員會<small>THE TRI-COUNCIL</small></h3>
+      </div>
+      <div class="tri">
+        <div style="--fc:var(--walter)"><img src="img/walter.webp" alt=""><b>沃爾特家族代表</b></div>
+        <div style="--fc:var(--edward)"><img src="img/edward.webp" alt=""><b>愛德華家族代表</b></div>
+        <div style="--fc:var(--morgan)"><img src="img/morgan.webp" alt=""><b>摩根家族代表</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subs">
+    <p class="kicker">Our Businesses</p>
+    <h2>事業體</h2>
+    <p class="sub">四家子公司各有專精，共同構成集團的服務網絡。</p>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="panel" id="panel"></div>
+  </section>
+
+  <section id="hq">
+    <p class="kicker">Leadership</p>
+    <h2>經營團隊</h2>
+    <p class="sub">集團總部的高階經營團隊與核心部門。</p>
+    <div class="hq">
+      <div class="role" style="--fc:var(--accent)"><em>CEO</em><b>執行長</b><p>集團最高領導人，制定整體戰略與發展方向，代表集團對外發言。</p></div>
+      <div class="role" style="--fc:var(--accent)"><em>COO</em><b>營運長</b><p>負責日常營運管理與流程優化，確保各部門高效協作。</p></div>
+      <div class="role" style="--fc:var(--accent)"><em>CFO</em><b>財務長</b><p>財務規劃、資金運用、風險控管及財報分析。</p></div>
+      <div class="role" style="--fc:var(--accent)"><em>CSO</em><b>業務長</b><p>制定業務拓展策略，監管全球業務發展與市場佈局。</p></div>
+      <div class="role" style="--fc:var(--accent)"><em>CIO</em><b>資訊長</b><p>領導數位轉型與資訊系統建設，強化資安與效率。</p></div>
+      <div class="role" style="--fc:var(--accent)"><em>CLO</em><b>法務長</b><p>處理國際合約、貿易法律風險與合規事務。</p></div>
+      <div class="role" style="--fc:var(--walter)"><em>CSDO</em><b>防衛安全執行長</b><p>統籌集團安全防衛與風險管理體系，督導 Strathex Tactical Solutions。</p></div>
+    </div>
+    <div class="depts">
+      <div class="dept"><b>國際業務部</b><span>國際業務總監、區域業務經理（亞太／歐洲／美洲）、業務專員</span></div>
+      <div class="dept"><b>採購與供應鏈部</b><span>採購經理、供應鏈協調員</span></div>
+      <div class="dept"><b>貿易營運部</b><span>進出口主管、報關專員</span></div>
+      <div class="dept"><b>策略與研發部</b><span>市場研究分析師、產品開發經理</span></div>
+      <div class="dept"><b>財務與行政部</b><span>會計經理、財務分析師、人力資源經理、行政助理</span></div>
+      <div class="dept"><b>資訊科技部</b><span>系統工程師、IT 支援專員</span></div>
+      <div class="dept"><b>公關與品牌部</b><span>公關經理、品牌策略師</span></div>
+    </div>
+  </section>
+
+  <section id="leaders">
+    <p class="kicker">People</p>
+    <h2>領導人物</h2>
+    <p class="sub">三大家族成員與各事業體主管。</p>
+    <div class="people" id="people"></div>
+    <div class="profile" id="profile" hidden></div>
+  </section>
+</main>
+
+<!-- ===== PORTAL LOGIN ===== -->
+<div class="wrap portal" id="portal" hidden>
+  <form class="box" id="portalForm">
+    <p class="eyebrow" style="margin:0">Internal Portal</p>
+    <h2>員工入口</h2>
+    <p>本區域僅限獲授權人員使用。請輸入授權碼以進入集團內部系統。</p>
+    <div><label for="pw">授權碼</label><input id="pw" type="password" autocomplete="off"></div>
+    <div class="msg" id="portalMsg"></div>
+    <button type="submit">進入</button>
+    <button type="button" class="back" id="portalBack">返回官方網站</button>
+  </form>
+</div>
+
+<!-- ===== INTERNAL SITE ===== -->
+<main class="wrap internal" id="internal" hidden>
+  <div class="intbar">
+    <div><span class="tag">INTERNAL</span> <span class="lvl" id="intLevel">三委員會授權 · 內部文件</span></div>
+    <button class="portalbtn" id="logoutBtn" type="button">登出並返回</button>
+  </div>
+  <div id="intContent"></div>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 克洛夫國際貿易集團 Klov International Trading Group</span>
+  <span>VIRTUTE ET HONORE · EST. 1297</span>
+</div></footer>
+
+<script>
+var SUBS=[
+ {id:"strathex",name:"斯塔赫風控顧問",en:"Strathex Tactical Solutions",family:"沃爾特家族",fc:"var(--walter)",type:"風險管理顧問",
+  pub:"專為高風險地區的企業與機構提供安全顧問、危機處理與資產保護方案。",
+  svcs:["海外據點安全評估與規劃","高風險地區人員防護與撤離方案","危機應變與事件處理","資產保全與押運服務"],
+  tiers:[
+   ["經營管理層","Management",[["防衛安全執行長","Chief Security & Defense Officer","CSDO","整體策略規劃、任務調度與跨部門協作。"]]]
+  ]},
+ {id:"gomov",name:"格莫夫租車公司",en:"Gomov",family:"沃爾特家族",fc:"var(--walter)",type:"車輛租賃／貴賓接送",
+  pub:"提供車輛租賃、貴賓司機與安全代步服務，據點遍布主要城市與邊境口岸。",
+  svcs:["長短期車輛租賃","貴賓專車與司機服務","高規格安全接送","企業車隊管理"],
+  tiers:[
+   ["經營管理層","Management",[["行動交通部主任","Director of Mobility Operations","DMO","統籌接送任務排程與人員部署，聯繫其他事業體協作。"]]]
+  ]},
+ {id:"hasov",name:"哈索夫船運",en:"Hasov Shipping",family:"愛德華家族",fc:"var(--edward)",type:"遠洋航運／貨櫃物流",
+  pub:"大型物流與海上運輸集團，專營國際貨櫃與遠洋運輸，航線涵蓋全球主要港口。",
+  svcs:["國際貨櫃與遠洋運輸","港口代理與通關服務","特殊貨物運輸規劃","海運風險評估"],
+  tiers:[
+   ["經營管理層","Management",[["海運作戰總監","Maritime Operations Director","MOD","艦隊配置、航線審核與跨境風險評估。"]]]
+  ]},
+ {id:"siegfried",name:"西格夫快遞",en:"Siegfried Express",family:"摩根家族",fc:"var(--morgan)",type:"高端快遞／特殊貨品運送",
+  pub:"主打精準、極速、安全的跨國快遞與特殊貨品運送服務。",
+  svcs:["跨國高價值快遞","機密文件與樣本運送","防篡改封裝服務","即時追蹤與通關代辦"],
+  tiers:[
+   ["經營管理層","Management",[["安全運輸作戰總監","Director of Secure Transport Operations","DSTO","審核特殊快遞項目、設計遞送鏈條。"]]]
+  ]}
+];
+var VAULT={"s":"5bZbKnki+j7J89PlNofrQQ==","i":"4ty3HFZh/gJs6wMk","c":"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"};
+var SECRET=null;
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function tierHTML(t){return '<div class="tier"><h4>'+esc(t[0])+'<span>'+esc(t[1])+'</span></h4><div class="roles">'+t[2].map(function(r){return '<div class="role"><em>'+esc(r[2]||r[1])+'</em><b>'+esc(r[0])+'</b><p>'+esc(r[3])+'</p></div>'}).join('')+'</div></div>'}
+
+var tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),cur=SUBS[0].id;
+function renderTabs(){tabs.innerHTML=SUBS.map(function(s){return '<button class="tab" role="tab" data-id="'+s.id+'" style="--fc:'+s.fc+'" aria-selected="'+(s.id===cur)+'"><i></i>'+esc(s.en)+'</button>'}).join('')}
+function renderPanel(){
+  var s=SUBS.filter(function(x){return x.id===cur})[0];
+  panel.style.setProperty('--fc',s.fc);
+  panel.innerHTML='<header><h3>'+esc(s.name)+'<small>'+esc(s.en)+'</small></h3><div class="meta"><span class="f">'+esc(s.family)+'</span><span>'+esc(s.type)+'</span></div></header>'+
+  '<div class="inner"><div class="svc"><div><h4>公司簡介</h4><p>'+esc(s.pub)+'</p></div><div><h4>提供的服務</h4><ul>'+s.svcs.map(function(v){return '<li>'+esc(v)+'</li>'}).join('')+'</ul></div></div>'+s.tiers.map(tierHTML).join('')+'</div>';
+}
+tabs.addEventListener('click',function(e){var b=e.target.closest('.tab');if(!b)return;cur=b.dataset.id;renderTabs();renderPanel()});
+var h=location.hash.replace('#','');if(SUBS.some(function(s){return s.id===h}))cur=h;
+renderTabs();renderPanel();
+
+/* ---- people ---- */
+var PEOPLE=[
+ {id:"hart-walter",name:"哈特・沃爾特",en:"HART WALTER",family:"沃爾特家族",fc:"var(--walter)",title:"防衛安全執行長",abbr:"CSDO",org:"克洛夫集團 · Strathex Tactical Solutions",img:"img/hart-walter.webp",layers:{bg:"img/hart-walter-full-bg.webp",fg:"img/hart-walter-full-fg.webp"},
+  quote:"No limits. No regrets.",
+  bio:"沃爾特家族現任代表，集團防衛安全執行長。統籌集團的安全防衛與風險管理體系，並督導 Strathex Tactical Solutions 的營運。",
+  facts:[["姓名","HART WALTER（哈特・沃爾特）"],["出生","2003 / 12 / 23（23 歲）"],["國籍","摩納哥"],["家族","沃爾特家族"],["職位","CSDO · 防衛安全執行長"],["督導","Strathex Tactical Solutions"],["三委員會","沃爾特家族代表"]]}
+];
+var peopleEl=document.getElementById('people'),profileEl=document.getElementById('profile');
+peopleEl.innerHTML=PEOPLE.map(function(c){return '<button class="person" data-id="'+c.id+'" style="--fc:'+c.fc+'"><img src="'+c.img+'" alt="'+esc(c.name)+'"><span class="pb"><em>'+esc(c.abbr)+'</em><b>'+esc(c.name)+'</b><small>'+esc(c.title)+' · '+esc(c.family)+'</small></span></button>'}).join('');
+function showProfile(id){var c=PEOPLE.filter(function(x){return x.id===id})[0];if(!c)return;
+  profileEl.style.setProperty('--fc',c.fc);
+  profileEl.innerHTML=(c.layers?'<div class="stage" id="stage"><div class="card idle"><img class="layer bg" src="'+c.layers.bg+'" alt=""><div class="shadow"></div><img class="layer fg" src="'+c.layers.fg+'" alt="'+esc(c.name)+'"><div class="glare"></div></div><span class="hint">DRAG / HOVER</span></div>':'<img src="'+c.img+'" alt="">')+'<div class="pd"><div><h3>'+esc(c.name)+'<small>'+esc(c.en)+' · '+esc(c.abbr)+'</small></h3></div>'+
+   (c.quote?'<p class="pq">「'+esc(c.quote)+'」</p>':'')+
+   '<div><h4>簡介</h4><p>'+esc(c.bio)+'</p></div>'+
+   '<div><h4>基本資料</h4><dl class="kv">'+c.facts.map(function(f){return '<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>'}).join('')+'</dl></div>'+
+   '<button type="button" class="close" id="profileClose">收合</button></div>';
+  profileEl.hidden=false;initStage();profileEl.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function initStage(){var st=document.getElementById('stage');if(!st)return;var card=st.querySelector('.card'),glare=st.querySelector('.glare'),raf=null,tx=0,ty=0,down=false;
+  function apply(){raf=null;card.style.transform='rotateX('+(-ty*14)+'deg) rotateY('+(tx*18)+'deg)';glare.style.background='linear-gradient('+(115+tx*40)+'deg,rgba(255,255,255,0) '+(35+ty*10)+'%,rgba(255,255,255,.55) '+(50+ty*10)+'%,rgba(255,255,255,0) '+(65+ty*10)+'%)'}
+  function move(x,y){var r=st.getBoundingClientRect();tx=((x-r.left)/r.width-.5)*2;ty=((y-r.top)/r.height-.5)*2;tx=Math.max(-1,Math.min(1,tx));ty=Math.max(-1,Math.min(1,ty));card.classList.remove('idle');if(!raf)raf=requestAnimationFrame(apply)}
+  function reset(){card.classList.add('idle');tx=0;ty=0;apply()}
+  st.addEventListener('pointermove',function(e){if(e.pointerType==='mouse'||down)move(e.clientX,e.clientY)});
+  st.addEventListener('pointerdown',function(e){down=true;st.setPointerCapture(e.pointerId);move(e.clientX,e.clientY)});
+  st.addEventListener('pointerup',function(){down=false;reset()});st.addEventListener('pointercancel',function(){down=false;reset()});
+  st.addEventListener('pointerleave',function(){if(!down)reset()});
+  if(window.DeviceOrientationEvent&&!('ontouchstart' in window===false)){window.addEventListener('deviceorientation',function(e){if(down||e.gamma==null)return;tx=Math.max(-1,Math.min(1,e.gamma/30));ty=Math.max(-1,Math.min(1,(e.beta-40)/30));card.classList.remove('idle');if(!raf)raf=requestAnimationFrame(apply)})}
+}
+peopleEl.addEventListener('click',function(e){var b=e.target.closest('.person');if(b)showProfile(b.dataset.id)});
+profileEl.addEventListener('click',function(e){if(e.target.id==='profileClose')profileEl.hidden=true});
+
+/* ---- views ---- */
+var pub=document.getElementById('public'),portal=document.getElementById('portal'),internal=document.getElementById('internal'),pubnav=document.getElementById('pubnav');
+function show(v){pub.hidden=v!=='public';portal.hidden=v!=='portal';internal.hidden=v!=='internal';pubnav.querySelectorAll('a').forEach(function(a){a.hidden=v!=='public'});
+  document.getElementById('portalBtn').textContent=v==='internal'?'內部系統':'員工入口';window.scrollTo({top:0})}
+document.getElementById('portalBtn').addEventListener('click',function(){show(SECRET?'internal':'portal');if(!SECRET)document.getElementById('pw').focus()});
+document.getElementById('portalBack').addEventListener('click',function(){show('public')});
+document.getElementById('logoutBtn').addEventListener('click',function(){SECRET=null;try{sessionStorage.removeItem('klov-pw')}catch(e){}show('public')});
+
+function renderInternal(){
+  var d=SECRET,html='';
+  html+='<div class="intsec"><h3>集團實際職能<small>GROUP MANDATE</small></h3><p style="margin:0">'+esc(d.layer)+'</p></div>';
+  SUBS.forEach(function(s){var sec=d.subs[s.id];if(!sec)return;
+    html+='<div class="intsec" style="--fc:'+s.fc+'"><h3>'+esc(s.name)+'<small>'+esc(s.en)+' · '+esc(s.family)+'</small></h3>'+
+      '<div class="meta"><span class="f">對外：'+esc(s.type)+'</span></div><div class="grid">'+
+      '<div><h4 style="margin:0 0 6px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;color:var(--fc)">實際職能</h4><ul class="redlist">'+sec.hid.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'+
+      sec.tiers.map(tierHTML).join('')+(sec.extra?'<p class="note">'+esc(sec.extra)+'</p>':'')+'</div></div>'});
+  document.getElementById('intContent').innerHTML=html;
+}
+
+/* ---- vault ---- */
+var form=document.getElementById('portalForm'),pwIn=document.getElementById('pw'),msg=document.getElementById('portalMsg');
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function tryUnlock(pw){
+  var sub=window.crypto&&crypto.subtle; if(!sub)throw new Error('nocrypto');
+  var base=await sub.importKey('raw',new TextEncoder().encode(pw.normalize('NFKC')),'PBKDF2',false,['deriveKey']);
+  var key=await sub.deriveKey({name:'PBKDF2',salt:b64(VAULT.s),iterations:200000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  var pt=await sub.decrypt({name:'AES-GCM',iv:b64(VAULT.i)},key,b64(VAULT.c));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+form.addEventListener('submit',function(e){e.preventDefault();var pw=pwIn.value;if(!pw)return;msg.textContent='驗證中…';msg.classList.remove('err');
+  tryUnlock(pw).then(function(d){SECRET=d;try{sessionStorage.setItem('klov-pw',pw)}catch(x){}pwIn.value='';msg.textContent='';renderInternal();show('internal')})
+  .catch(function(err){msg.textContent=err.message==='nocrypto'?'此瀏覽器不支援驗證':'授權碼錯誤';msg.classList.add('err')})});
+try{var saved=sessionStorage.getItem('klov-pw');if(saved&&VAULT.c)tryUnlock(saved).then(function(d){SECRET=d;renderInternal();show('internal')}).catch(function(){})}catch(e){}
+</script>
+
+</body>
+</html>
